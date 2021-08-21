@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        /* 
+            返回值return
+                创建了函数后的值
+                我们可以通过return 来设置函数的返回值
+                return后的值将会会作为函数的执行结果返回
+                在函数中return后的语句都不会执行
+                如果return语句后不跟任何值就相当于返回一个undefined
+                如果函数中不写return 也会返回undefined
+        */
+
+        function fanhui(a,b,c){
+            var num=a+b+c;
+            return num;
+            
+        }
+        fanhui.sex='男'
+        console.log(fanhui.sex);
+        var num2=fanhui(2,3,4);
+        console.log(num2);
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

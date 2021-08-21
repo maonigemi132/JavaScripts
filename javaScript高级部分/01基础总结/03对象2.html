@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            问题：什么时候必须使用['属性名']的方式
+                1.属性名包含特殊字符： - 空格
+                2.变量名不确定
+        */
+
+      
+        var a="myAge";
+        var value=18;
+        var p={};
+        //p.person-text='123';不能用会报错，属性命名规范出问题
+       
+        /* 这种方式使把变量名作为属性名 */
+        p.a=value
+        console.log(p);
+
+        /* 变量名不确定，我们想要把属性值作为属性名时候就需要通过这种方式处理 */
+        p[a]=value  
+        console.log(p);   
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

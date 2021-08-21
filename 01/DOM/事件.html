@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <button id="btn" >点击我呀</button>
+    
+</body>
+    <script>
+        /* 
+            事件，就是用户和游览器交互的行为
+                可以为按钮的对应事件绑定处理函数的形式来响应事件
+                这样当事件被触发时，其对应的函数将会被调用 
+        */
+       var btn=document.getElementById("btn")
+       btn.onclick=function(){
+            alert("111")
+       }
+       console.log(btn);
+       
+
+    </script>
+</html>

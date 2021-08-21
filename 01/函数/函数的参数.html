@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            可以在函数的（）中指定一个或者是多个形参
+            多个形参之间可以用,隔开，声明形参相当于在函数内部声明可对应的变量
+            
+        */
+
+        function sum(a,b){
+           document.write(a+b);        
+        }
+
+        /* 在调用函数时候，可以在（）指定实参（实际的参数） 
+            实参将会赋值给函数中对应的形参
+            调用函数时候解析器不会检查实参的类型
+            所以要注意，是否有可能接收到非法的参数，如果有可能需要对参数进行类型检查
+
+            调用函数的时候，解析器不会检查实参的数量，你赋值给到数量中前几位，多余的不会赋值
+            如果实参的数量少于形参的数量，则没有对应形参的的形参将会是undefined
+            函数的实参可以是任意的数据类型
+        */
+        sum(1,2)
+        sum(1,"123")
+        sum("123"+123,222,444)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

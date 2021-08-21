@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            1.理解
+                多个上下级关系的作用域形成的链，它的方向是从下向上的（从内外到）
+                作用域链就是一个嵌套的由内向外的
+                查找变量时就是沿着作用域链来查找的
+            2.查找一个变量的查找规则
+                当当前作用域下的执行上下文中查找对应的属性，如果有直接返回否则进入2
+                在上一级作用域的执行上下文中去查找对应的属性，有返回，没有再到上一层
+                再次执行上面操作，最后找到全局作用域都美找到就会抛出异常
+         
+        */
+       var a=1
+       function fun() {
+           var b=2
+           function fun2() {
+               var c=3
+               console.log(c);
+               console.log(b);
+               console.log(a);
+               console.log(d);
+           }
+           fun2()
+       }
+       fun();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

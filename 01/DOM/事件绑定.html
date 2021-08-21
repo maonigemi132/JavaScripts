@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       window.onload=function(){
+            var btn=document.getElementById("btn")
+
+           
+
+            /* btn.onclick=function(){
+                alert("1")
+            }
+            btn.onclick=function(){
+                alert("2")
+            } */
+
+            /* 
+                addEventListener()
+                -通过这个方法也可以为元素绑定响应函数
+                -参数
+                    1.事件的字符串，不要on
+                    2.回调函数，当事件触发时该函数会被调用
+                    3.是否在扑火阶段触发事件，需要一个布尔值，一般传false
+                  
+                  addEventListener()可以同时为一个元素的相同时绑定多个响应函数
+                  这样当事件触发时，响应函数将会安早函数的绑定顺序执行
+                  
+                  不支持IE8
+
+            */
+           
+           /*  btn.addEventListener("click",function(){
+                alert("1")
+            },false)
+            
+            btn.addEventListener("click",function(){
+                alert("2")
+            },false)
+            
+            btn.addEventListener("click",function(){
+                alert("3")
+            },false)
+ */
+
+            /* 
+                attachEvent()只支持ie8
+                 参数 1.事件字符串，要on
+                      2.回调函数
+                 -这个方法也可以同时为一个事件绑定多个处理函数
+                    不同的是它是后绑定先执行，执行顺序和addEventListener相反     
+            */
+           
+          /*   btn.attachEvent("onclick",function(){
+                alert("1")
+            })
+            btn.attachEvent("onclick",function(){
+                alert("2")
+            }) */
+            
+          
+            /* 
+                定义一个函数，用来指定元素绑定响应函数
+                参数 obj 要绑定事件的对象
+                eventStr 事件的字符串
+                callback 回调函数
+            
+                attachEvent返回的this是windows  
+                addEventListener 返回的this是btn本身
+            */
+          
+            function bind(obj,eventStr,callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(eventStr,callback,false);   
+                }else{
+                     obj.attachEvent("on"+eventStr,function(){
+                        /* 
+                            通过添加匿名函数方式让游览器去调用匿名函数方式，
+                            再由我们通过在匿名函数里面通过call方式修改对象this的方式来达到
+                            修改this指向性问题
+                        */
+                         callback.call(obj)
+                     })    
+                }
+                  
+            }
+
+         
+            bind(btn,"click",function(){
+                alert("1") 
+                alert(this)     
+            })
+            
+          
+
+           
+
+
+       }
+    </script>
+</head>
+<body>
+    <button id="btn">点击</button>
+    
+</body>
+</html>

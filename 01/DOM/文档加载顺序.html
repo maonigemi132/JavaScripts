@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+      /* 
+            在读取一行就运行一行情况下，页面还未加载完成，
+            而代码却先执行了，会导致响应函数事件报错
+
+           onload()事件会再整个页面加载完成之后才触发
+            -为window绑定一个onload事件
+            -该事件对应的响应函数将会在页面加载完成之后执行，
+            -这样可以确保我们的代码执行时所有的DOM对象已经加载完毕了 
+        
+      */
+      window.onload=function(){
+        var btn=document.getElementById("btn")
+        //响应函数
+        btn.onclick=function(){
+             alert("111")
+        }
+      
+      }
+        
+ 
+     </script>
+</head>
+<body>
+        <button id="btn" >点击我呀</button>
+    
+</body>
+    
+</html>

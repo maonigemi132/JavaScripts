@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            JSON
+                -js中的对象只有js自己认识，其他语言都不认识
+                -JSON就是一个特殊的字符串，这个字符串可以被任意语言识别
+                    并且可以转换成任意语言中的对象，Json在开发中主要用来数据的交互传递
+                -JSON
+                    JavaScript Object Notation
+                    -JSON和js对象的格式是一样的，只不过JSON字符串属性名必须加双引号
+                        其他的和JS语法一致
+                        JSON分类：
+                            1.对象{}
+                            2.数组[]
+                        Json中允许的值：
+                            1.字符串
+                            2.数值
+                            3.null
+                            4.boolean
+                            5.对象（普通对象，函数对象不行）
+                            6.数值
+
+                在JSON字符串转换为js中的对象
+                Json  转换 js对象
+                JSON.parse（）
+                    -可以将以JSON字符串转换为js对象
+                    -它需要一个JSON字符串作为参数，会将该字符串转换为JS对象并返回
+                
+        */
+        // 创建一个对象
+        var obj = '{"name":"小明","age":"12"}';
+
+        // json数组中的值套对象
+        var arr = '[{"name":"小明","age":"12"}]';
+        console.log(JSON.parse(obj));
+
+        /* js对象 转换 json
+            JSON.stringify()
+                -可以将一个js对象转换为JSON字符串
+                -需要一个JS对象作为参数，会返回一个JSON字符串
+        */
+        var obj = { "name": "小明", "age": "12" };
+        var str = JSON.stringify(obj);
+
+        /* 
+            eval();
+                -这个函数可以用来执行一段js代码，并将执行结果返回。
+                -如果使用eval（）执行的字符串中含有{}，它会将{}当前是代码块
+                    如果不希望将其当成代码块解析，则需要在字符串前后各加一个();
+            由于eval这个函数的功能很强大，可以直接执行一个字符串中的js代码
+                开发中进来不要使用，首先它执行行了比较差，而且还有安全隐患
+        */
+        var evr = '{"name": "小明", "age": "14"}';
+        var evr2="alert('1')";
+        var evrs=eval("("+evr+")")
+        console.log(evrs);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

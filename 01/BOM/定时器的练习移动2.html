@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            var btn = document.getElementById("btn");
+            var btn2 = document.getElementById("btn2");
+
+
+        
+
+            btn.onclick = function(){
+                fun(box,10,800)
+            }
+
+
+            btn2.onclick = function(){
+                fun(box,10,0)
+            }
+
+        }
+
+        //定义在了全局，用来保存定时器的唯一的标识
+        var time;
+        /* 
+            obj要执行动画的对象
+            target：执行动画的目标位置
+            speed：移动的速度（正数向右 负数向左）
+        */
+        function fun(obj,speed, target) {
+            clearInterval(time)
+
+            // 获取元素目前的位置
+            var current = parseInt(getStyle(obj, "left"));
+            // 这个判断的作用主要是用来判断从0到正数800移动，则返回speed正数，否则800到0就负数
+            // 解决点击传入参数只传正数然后判断处理的问题
+            if(current>target){
+                    speed=-speed
+            }
+
+
+            time = setInterval(function () {
+
+                //当我们在一个变量中只想保留其数值时候我们可以使用parseFloar或者parseInt（）
+                //旧值通过getComputedStyle获取当前元素的left值
+                var oldValue = parseInt(getStyle(obj, "left"));
+                //在旧值基础上新增
+                var newValue = oldValue + speed;
+                //向左移动时候，需要判断newValue是否小于target;
+                 //向右移动时候，需要判断newValue是否大于target;
+                if (speed<0 &&newValue < target||speed>0 &&newValue >target) {
+                    newValue = target;
+                } 
+
+                obj.style.left = newValue + "px"
+                //关闭定时器
+                if (newValue == target) {
+                    clearInterval(time);
+                }
+            }, 30)
+        }
+
+
+        /* 通用的获取样式方法 */
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <button id="btn">点击移动</button>
+    <button id="btn2">点击左移动</button>
+    <div id="box"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementsByTagName("button");
+            //解决思路一
+            /*  for (var i = 0; i < btn.length; i++) {
+                 btn[i].num = i
+                 btn[i].onclick = function () {
+                     var index =this.num
+                     console.log(index);
+                 }
+             } */
+            //解决思路二
+            for (var i = 0; i < btn.length; i++) {
+
+                (function (i) {
+                    btn[i].onclick = function () {
+                        console.log(i);
+                    }
+                })(i)
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button>测试1</button>
+    <button>测试2</button>
+    <button>测试3</button>
+</body>
+
+</html>

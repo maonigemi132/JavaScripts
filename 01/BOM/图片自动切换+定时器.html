@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        #imgs {
+            width: 500px;
+            height: 400px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var img = document.getElementById("img")
+            var btn = document.getElementById("btn")
+            var btnStop = document.getElementById("btnStop")
+            var arr = ["./05/1.jpg", "./05/2.jpg", "./05/3.jpg", "./05/4.jpg", "./05/5.jpg"];
+            /* 保存当前索引 */
+            var index = 0;
+            var times;
+            /* 控制多次点击开始按钮时候卡顿问题 */
+            var flag = true;
+            btn.onclick = function () {
+                /* 
+                    目前，我们每点击一次按钮，就会开启一次定时器
+                    点击多次就开启多个定时器，导致图片切换速度过快
+                    并且我们只能关闭最后一次开启定时器
+                    处理方法我们可以在点击开启前先 clearInterval(times)可以处理
+                    但是会明显卡顿，那么我们可以采取另外方法声明一个变量来充当前状态判断
+                
+                */
+                if (flag) {
+                    times = setInterval(function () {
+                        index++;
+                        /* 判断是否超过最大索引 */
+                        if (index >= arr.length) {
+                            index = 0;
+                        }
+                        // 第二种判断方法 index%=arr.length 取模方式处理
+                        img.src = arr[index]
+                    }, 1000)
+                }
+                flag = false;
+            }
+
+            btnStop.onclick = function () {
+                /* 
+                    clearInterval 可以接收任意参数
+                    如果参数是一个有效定时器的标识，则停止定时器
+                    如果不是一个有效标识，则什么都不会做
+                     
+                */
+                clearInterval(times);
+                flag = true;
+            }
+
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="imgs">
+        <img src="./05/1.jpg" alt="" id="img">
+        <button id="btn">开始</button>
+        <button id="btnStop">暂停</button>
+    </div>
+
+</body>
+
+</html>

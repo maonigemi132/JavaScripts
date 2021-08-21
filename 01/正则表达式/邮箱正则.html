@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            \w{3,}开头字母数字要出现3次以上
+            (\.\w+)* .数字字母可以出现一次也可以不出现
+            @[A-Za-z0-9] 一个@加上字母数字任意次数
+            (\.[A-Za-z]{2,5}){1,2} 字母出现位数要达到2次以上{1,2}表示括号中表达式出现次数
+        */
+        var email="222.c22@c222.AA.csss"
+        var reg=/^\w{3,}(\.\w+)*@[A-Za-z0-9]+(\.[A-Za-z]{2,5}){1,2}$/; 
+        console.log(reg.test(email));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

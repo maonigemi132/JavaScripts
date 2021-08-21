@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 谁调用的那么this就是谁 */
+        var name="全局";
+        function fun(){
+            console.log(this.name);
+        }
+        fun();
+
+        var obj={
+            name:'孙悟空',
+            say:fun
+        }
+
+        var obj2={
+            name:'猪八戒',
+            say:fun
+        }
+        obj.say();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

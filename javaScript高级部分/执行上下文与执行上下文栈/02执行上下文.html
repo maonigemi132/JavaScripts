@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            1.代码分类
+                全局代码
+                函数（局部）代码
+            2.全局执行上下文（window）  执行上下文也可以当做一片区域             
+                执行上下文和执行上下文栈是通过由变量提升和函数提升引申出来的
+
+                什么时候确定是全局上下文：
+                在执行全局代码前将window确定为全局执行上下文
+                对全局数据(y预处理)
+                var定义的全局变量==underfined，添加为window的属性
+                function声明的全局函数==赋值（fun），添加为window的方法
+                this==赋值（window）
+                开始执行全局代码
+            3.函数执行上下文（function）
+                在调用函数，准备执行函数体之前，创建对应函数执行上下文对象（虚拟的，存在栈中）有隔离作用，
+                我们查找变量就是在执行上下文中寻找
+                
+                对局部数据进行预处理
+                形参变量=赋值（实参）=添加为执行上下文属性
+                var定义的局部变量==underfined，添加为执行上下文的属性
+                function声明函数==赋值（fun），添加为执行上下文的方法
+                this=调用函数对象
+                开始执行函数代码
+         */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

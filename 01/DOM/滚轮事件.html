@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+
+
+            /*  function fun(){
+                 alert("11")
+             } */
+
+            // box.onmousewheel=fun
+
+            /*
+               onmousewheel鼠标滚轮滚动事件  火狐不支持              
+               在火狐中要用DOMMouseScroll
+
+               event.wheelDelta获取滚轮方向 火狐不支持
+               向上滚120 下-120
+
+               火狐支持event.detail 获取滚轮方向
+               向上滚-3 下3
+
+           */
+            box.onmousewheel = function (event) {
+                //获取滚动事件操作    
+                event = event || window.eveny;
+                console.log(event);
+                if (event.wheelDelta > 0 || event.detail < 0) {
+                    box.style.height = box.clientHeight - 10 + "px"
+                } else {
+                    box.style.height = box.clientHeight + 10 + "px"
+                }
+                event.preventDefault&&event.preventDefault();
+
+                return false;
+            }
+
+            /* addEventListener()方法绑定响应函数，取消默认行为时候无法使用return false 
+                需要使用event来取消默认行为
+            */
+            
+
+            /* 火狐 box.onmousewheel把这个作为回调函数给到bind这边 */
+            bind(box, "DOMMouseScroll", box.onmousewheel)
+        }
+
+
+
+        function bind(obj, eventStr, callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callback, false);
+            } else {
+                obj.attachEvent("on" + eventStr, function () {
+                    /* 
+                        通过添加匿名函数方式让游览器去调用匿名函数方式，
+                        再由我们通过在匿名函数里面通过call方式修改对象this的方式来达到
+                        修改this指向性问题
+                    */
+                    callback.call(obj)
+                })
+            }
+
+        }
+
+    </script>
+</head>
+
+<body style="height: 2000px;">
+
+    <div id="box"></div>
+
+</body>
+
+</html>

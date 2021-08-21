@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+        }
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var box = document.getElementById("box");
+            document.onkeydown = function (event) {
+                event = event || window.event
+                var speed=10;
+                console.log(event.key);
+                if(event.ctrlKey){
+                    speed+=40;
+                }
+                switch (event.key) {
+                    case "ArrowUp":
+                            box.style.top = box.offsetTop-speed+"px"
+                            console.log(box.offsetTop);
+                        break;
+                    case "ArrowDown":
+                           box.style.top = box.offsetTop+speed+"px"
+                           console.log(box.offsetTop);
+                        break;
+                    case "ArrowLeft":
+                            box.style.left = box.offsetLeft-speed+"px"
+                        break;
+                    case "ArrowRight":
+                            box.style.left = box.offsetLeft+speed+"px"
+                        break;
+                }
+
+            }
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+
+</body>
+
+</html>

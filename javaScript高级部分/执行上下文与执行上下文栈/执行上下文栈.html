@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            在全局代码执行之前，js引擎就会创建一个栈来存储管理所有的执行上下文对象
+            在全局执行上下文（window）确认后，将其添加到栈中（压栈）
+            在函数执行上下文创建后，将其添加到栈中（压栈）
+            在当前函数执行完之后，将栈顶的对象移除（出栈）
+            当所有的代码执行完之后，栈中只剩下window
+            栈是先后进先出 队列是先进先出
+            上下文对象公式 函数上下文n + 1 widows
+        */
+
+        /* 此时产生过3个上下文对象 一个是window只能由一个，函数上下文对象，在执行调用时候才会产生 */
+        var a=10
+        var bar=function(x){
+            var b=5
+            foo(x+b)
+        }
+        var foo=function(y){
+            var c=5
+            console.log(a+c+y);
+        }
+        bar(10)
+        bar(10)//再调用一次的话那么就一共由5个上下文对象了 window 1个 函数上下文4个
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

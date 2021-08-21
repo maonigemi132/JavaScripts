@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 工厂方式 
+            使用工厂方式创建对象，作用主要还是避免多个对象创建的时候属性重复
+            缺点:每次创建的对象都是Object，例如人和狗创建了返回类型我们应该区分开来
+        */
+       function createPreson(name,age,sex){
+           var obj=new Object();
+           obj.name=name;
+           obj.age=age;
+           obj.sex=sex;
+           obj.say=function(){
+                alert(this.name)
+           }
+           return obj
+       }
+
+       var obj1=createPreson("小明",12,'男');
+      
+       console.log(obj1);
+       
+       
+       
+
+
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

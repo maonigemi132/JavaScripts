@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            套路：先创建object空对象，再动态添加属性或者方法
+            使用场景：起始时不确定对象内部数据
+            问题缺点：语句太多
+        */
+        var obj=new Object()
+        obj.name="xiaoming"
+        obj.fun=function(){
+            this.name=name
+        }
+
+        //测试
+        console.log(obj.name);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            读取对象的属性值时：会自动到原型链中查找
+            设置对象的属性值时，不会查找原型链，如果当前对象中没有此属性，直接添加此属性设置其值
+            方法一般定义在原型中，属性一般通过构造函数定义在对象本身上
+
+        */
+
+        function Fn(){}
+        Fn.prototype.a="11";
+        var fn1=new Fn();
+        console.log(fn1.a,fn1);
+
+        var fn2=new Fn();
+        fn2.a="yyy"; //这是添加操作，并不会通过原型链查找修改的
+        
+        function Person(name) {
+            this.name=name
+        }
+
+        var p=new Person("22");
+        var p2=new Person("333");
+        console.log(p.__proto__===p2.__proto__);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

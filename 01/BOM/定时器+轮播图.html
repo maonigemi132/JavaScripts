@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+
+        未处理版本 通过偏移量的方式来设定的，但无法知道如何同时偏移
+     -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: antiquewhite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #other {
+            background-color: #bfa;
+            position: relative;
+            margin: 200px auto;
+            width: 500px;
+            height: 400px;
+            padding: 10px 0px;
+            /* overflow: hidden; */
+        }
+
+        #imgList {
+            width: inherit;
+            height: inherit;
+            background-color: brown;
+        }
+
+        #imgList li {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            list-style: none;
+            left: 0;
+            margin-right: 40px;
+        }
+
+        #other img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 圆点 */
+        #yuan {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15px;
+        }
+
+        #yuan li {
+            display: inline-block;
+        }
+
+        #yuan a {
+            display: inline-block;
+            text-decoration: none;
+            width: 18px;
+            height: 16px;
+            background-color: rgba(189, 229, 96, 0.5);
+        }
+
+        #yuan a:hover {
+            background-color: rosybrown;
+        }
+
+        #yuan .on {
+            background-color: rosybrown;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var imgList = document.getElementById("imgList");
+            var imgs = document.querySelectorAll("#imgList>li");
+            var dd = document.querySelectorAll("#yuan>li>a");
+
+            for (var i = 0; i < imgs.length; i++) {
+                dd[i].num = i;
+                imgs[i].style.left = 500 * dd[i].num + "px"
+            }
+
+
+            for (var i = 0; i < dd.length; i++) {
+                //把索引作为对象的属性添加标记起来保存
+                dd[i].num = i;
+                dd[i].onclick = function () {
+                    index = this.num;
+                    console.log(index);
+                    imgs[index] = -500 * index;
+                    console.log(imgs[index].offsetLeft);
+                    for (var j = 0; j < imgs.length; j++) {
+                        imgs[j].style.left=imgs[j].offsetLeft-500+"px";
+                       
+                    }
+                }
+
+            }
+
+
+
+            /* 方块循环 */
+            var index = 0;
+            function styles() {
+                console.log(dd[0]);
+                for (var i = 0; i < dd.length; i++) {
+                    dd[i].className = ""
+                }
+                if (index > dd.length - 1) {
+                    index = 0;
+                }
+                dd[index].className = "on"
+                index++;
+                console.log(index);
+
+            }
+            styles();
+
+
+            var times = null;
+            function autoPlay() {
+                times = setInterval(function () {
+                    for (var i = 0; i < imgs.length; i++) {
+                        imgs[i].style.left = imgs[i].offsetLeft - 500 + "px"
+                        console.log(imgs[i].offsetLeft);
+                    }
+                    styles();
+                }, 2000)
+            }
+            // autoPlay();
+
+
+
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="other">
+        <ul id="imgList">
+            <li>
+                <img src="./05/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./05/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./05/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./05/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="./05/5.jpg" alt="">
+            </li>
+        </ul>
+
+        <ul id="yuan">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+
+    </div>
+
+
+</body>
+
+</html>

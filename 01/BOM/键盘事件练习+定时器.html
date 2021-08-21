@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: relative;
+        }
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <!-- 通过添加定时器解决移动卡顿问题 -->
+    <script>
+        window.onload = function () {
+
+            var time;
+            /* 设置一个变量通过定时器的情况来控制速度 */
+            var dir = 0;
+            var speed = 10;
+            time = setInterval(function () {
+                
+
+                switch (dir) {
+                    case "ArrowUp":
+                        box.style.top = box.offsetTop - speed + "px"
+                        console.log(box.offsetTop);
+                        break;
+                    case "ArrowDown":
+                        box.style.top = box.offsetTop + speed + "px"
+                        console.log(box.offsetTop);
+                        break;
+                    case "ArrowLeft":
+                        box.style.left = box.offsetLeft - speed + "px"
+                        break;
+                    case "ArrowRight":
+                        box.style.left = box.offsetLeft + speed + "px"
+                        break;
+                }
+
+            }, 30)
+
+
+            var box = document.getElementById("box");
+            document.onkeydown = function (event) {
+                event = event || window.event
+                /* 把按键赋值给到dir */
+                dir = event.key
+                if (event.ctrlKey) {
+                    speed = 500;
+                }else{
+                    speed=10;
+                }  
+
+            }
+
+            /* 当按键松开时候，dir不再移动 */
+            document.onkeyup = function () {
+                /* 把event赋值给到dir的方向值设置为0*/
+                   dir=0;                 
+                }
+
+
+
+
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+
+</body>
+
+</html>

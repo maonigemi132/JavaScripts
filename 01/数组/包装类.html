@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            在js中我们提供了三个包装类，通过这三个包装类可以将基本数组类型转换为对象
+            String()
+            Number()
+            Boolean();
+
+            但是注意：我们在实际应用中不会使用基本数据类型对象
+                    如果使用基本数据类型的对象，在做一些比较时可能会带来一些不可预期的结果
+                
+              方法和属性只能添加给对象，不能添加给到基本数据类型的
+              当我们对一些基本数据类型的值去调用属性和方法时候，
+                游览器会临时使用包装类将其转换成对象，然后在调用对象的属性和方法      
+                过程上是它会先把s转换成number对象，然后调用它自己里面的tosrring()
+                调用完以后，在将其转换成基本数据类型
+
+             所以包装类其实主要就是游览器底层自己用的，它会临时把我们基本数据类型转换成对象。
+             所以String()对象的方法基本数据类型也可以用,虽然我们点了不显示，
+             但是游览器帮我们临时转换处理了  
+         */
+        var str=new String();
+         var s=123;
+         s=s.toString();
+         s=s.bold("22");
+         console.log(s);
+         console.log(typeof s);
+         
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

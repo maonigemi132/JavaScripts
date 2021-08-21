@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        #outer{
+            width: 590px;
+            margin: 100px auto;
+            background-color: burlywood;
+            text-align: center;
+            position: relative;
+        }
+
+        #dian{
+            position:absolute;
+            right: 20px;
+            bottom: 34px;
+            margin: 0px auto;
+            display: flex;
+        }
+
+        #dian li{
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border: 2px solid gray;
+            background-color: rgba(37, 23, 23, 0.568);
+            list-style: none;
+            margin: 0px 4px;
+        }  
+        #dian .on{
+            background-color: tomato;
+        }
+
+        #dian .lin{
+            background-color: tomato;
+        }
+      
+       
+    </style>
+    <script>
+        window.onload=function(){
+
+            var imgs=document.getElementsByTagName("img")[0];  
+            var pre=document.getElementById("pre"); 
+            var next=document.getElementById("next");   
+            var imgArr=["img/05/1.jpg","img/05/2.jpg","img/05/3.jpg","img/05/4.jpg","img/05/5.jpg"];
+            var index=0;
+            var p=document.getElementById("pp");
+            p.innerHTML="这是第"+(index+1)+"张图片"
+            
+
+            pre.onclick=function(){
+                index--;
+                zong();         
+            }
+
+            next.onclick=function(){
+                index++;
+                zong();
+            }
+
+            function zong(){
+                if (index<0) {
+                    index=imgArr.length-1; 
+                }else if (index>imgArr.length-1) {
+                    index=0;
+                }
+                imgs.src=imgArr[index]
+                p.innerHTML="这是第"+(index+1)+"张图片"
+                showCurrentDot();  
+            }
+
+            
+           
+            
+           
+            
+
+            /* 自动播放 */
+            var times=null;
+            function autoPlay(){
+                times=setInterval(function(){
+                   
+                    index++;
+                    zong();             
+                    showCurrentDot();
+                },2000)
+            }
+
+            //调用自动播放
+            autoPlay();
+
+            // 鼠标移入停止自动播放
+            var container = document.querySelector("#outer");
+            container.onmouseenter = function () {
+            clearInterval(times);
+            }
+            container.onmouseleave = function () {
+                autoPlay();    
+            }
+
+           
+            
+
+            /* 点点自动 */
+            var dian=document.getElementsByTagName("li");
+            console.log(dian);
+            
+            function showCurrentDot(){
+                for(var i = 0; i < dian.length; i++){                   
+                    dian[i].className = "";
+                }
+                    dian[index].className = "on";                
+            }      
+
+
+
+            function yuan(){
+                for (var i = 0; i < dian.length; i++) {        
+                     (function(i){
+                        dian[i].onclick=function(){                                                   
+                            index=i;
+                            zong();               
+                        }
+                     })(i)       
+                }
+            }
+            yuan()
+
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <p id="pp"></p>
+        <img src="./img/05/1.jpg">
+        <ul id="dian">
+            <li class="lin"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <button id="pre">上一张</button>
+        <button id="next">下一张</button>
+        
+    </div>
+    
+</body>
+</html>

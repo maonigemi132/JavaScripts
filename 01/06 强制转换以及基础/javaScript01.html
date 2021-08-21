@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        alert("alert是一个警告框");
+        // 在计算机中输出一个内容
+        document.write("document就是文档,网页就是文档，wirte就是写的意思");
+        // 向控制台中输出一个内容，一般就是测试数据时候可以配合输出查看数据或者是结果
+        console.log("控制台输出")      
+    </script>
+    <!-- 外部引入 
+        script一旦引用了外部的文件，就不能在里面编写代码了。就算编写了游览器也会忽略
+    -->
+    <script src="./javaScript外部/wai.js">
+            alert("测试")
+    </script>
+</head>
+<body>
+    <!-- 虽然可以写在标签中，但是他们属于行为和结构耦合，不方便后期维护，不推荐-->
+    <button onclick="alert('点了就好')">可以点击我一下</button>
+    <a href="javaScript:alert('ok');">可以试试点击</a>
+    <a href="javaScript:;">可以试试点击</a>
+    
+</body>
+
+</html>

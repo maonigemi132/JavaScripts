@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* concat() 可以连接两个或者是多个数组，并将新的数组返回
+            -该方法不会对原数组产生影响
+        
+            join()
+                -该方法可以将数组转换成一个字符串
+                -该方法不会对原数组产生影响，而是将转换后的字符串作为结果返回
+                -在join()中可以指定一个字符串作为参数，这个字符串将会称为数组中元素的连接符
+                    如果不指定连接符，则默认使用，作为连接符
+        */
+
+        var arr=["小红","小兰"]
+        var result=arr.concat("小鬼","小李")
+        console.log(result);
+
+        var joins=arr.join("111");
+        console.log(joins);
+
+        /* 
+            reverse()
+            颠倒，该方法会直接修改原数组
+            
+
+        */
+       result.reverse();
+       console.log(result) ;
+       
+       /* 
+        sort()
+           -可以用来对数组中的元素进行排序
+           -也会影响元数组，默认会安装unicode编码进行排序
+            就算是纯数字，也安装unicode编码来排序，这种情况其实可以自己指定排序规矩
+            在sort中()添加一个回调函数，来指定规则。
+            使用哪个元素调不确定，但是肯定的是在数组中a一定在b前面
+           - 游览器会根据回调函数返回值来决定元素的顺序,
+                如果返回一个大于0的值，则元素会交换位置
+                如果返回一个小于0的值，则元素位置不变
+                如果返回一个0，则认为两个元素相等，也不交换位置
+    
+       */
+       arr=['a','b','d','t','c','f','a'];
+       arr=[5,4,2,1,3,6,8,7];
+       result=arr.sort(function(a,b){
+         
+            return a-b;
+       });
+       console.log(result);
+       
+      function A(a){
+        if(a){
+            this.a=a   
+        } 
+      }
+      A.prototype.a=1;
+      var s=new A();
+      console.log(s.a);
+    
+    
+      
+
+       
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

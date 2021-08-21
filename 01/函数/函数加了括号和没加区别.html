@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function isOu(num){
+          return num%2==0;
+        }
+
+        var result=isOu(4);
+        console.log(result);
+
+
+        /* 
+            实参可以是一个对象，也可以是一个函数，因为函数也是对象
+        */
+        function test(obj){
+            console.log("姓名是"+obj.name+"年龄是"+obj.age)
+        }
+
+        var obj={
+            name:"韩红",
+            age:14
+        }
+       
+        test(obj);
+
+
+
+       
+        /* 
+        当我们传递的参数是一个函数的时候不加括号和加括号区别
+
+            fun(isOu(2)); 调用函数
+            加了括号其实我们是把isOu(2)中的结果的返回值当成实参
+            来传递到fun的形参然后输出
+
+
+            fun(isOu);
+            函数对象，相当于直接使用了函数对象
+        */
+
+        
+        function fun(o){
+           console.log(o);
+            // o(obj);
+        }
+
+        fun(isOu);
+
+       
+        
+     
+     
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

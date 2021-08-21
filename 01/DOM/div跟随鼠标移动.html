@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px
+        }
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+        window.onload=function(){
+            var box=document.getElementById('box1');
+            document.onmousemove=function(event){
+
+                  /* 
+                    div的偏移量，是相当于整个页面的
+                    pageX  pageY可以获取鼠标相对于当前页面的坐标
+                    但是不支持ie8
+               
+               */
+               var x=event.clientX;
+               var y=event.clientY;
+              
+                /* 
+                    问题一
+                       当如果不补上添加滚动条滑动的差距值，
+                       那么在box.style.top=y+"px" 下滑的时候元素原点
+                       会有所偏差,因为鼠标是基于可视窗口作为原点，而我们div
+                       是整个页面的，当高度超出父容器时候产生的滚动条进行下滑的时候
+                       我们div页面也会往上挪，原点就被遮住在上面了，而鼠标原点还是之前基于可视化
+                       窗口的位置。
+                */
+               var dong=document.documentElement.scrollTop||document.body.scrollTop
+               box.style.left=x+"px"
+               box.style.top=y+dong+"px"
+            }
+            var box2=document.getElementById('box2');
+
+            box2.onmousemove=function(){
+                alert("1")
+                event=event||window.event
+                event.cancelBubble=true
+            }
+        }
+    </script>
+</head>
+<body id="body" style="height: 1000px;">
+    <div id="box2" style="background-color: wheat; width: 400px;height: 400px;"></div>
+    <div id="box1"></div>
+    
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二元运算两个数值运算</title>
+    <script>
+        /* 
+            算数运算符
+                通过运算符可以对一个或者多个值来进行运算，并获取运算结果
+                比如：typeof就是运算符，可以来获得一个值的类型
+                        它会将该值的类型以字符串的形式返回
+                +   加法运算
+                        当对非Number类型的值进行运算时,会将这些值转换为Number然后在运算
+                            例如：true null会转换成1 0
+                            注意：任何值和NaN运算时候都会结果都是NaN
+
+                    +可以对两个值进行加法运算，并将结果返回
+                        1.如果两个字符串都进行加法运算，那么就会拼接处理把两个字符串
+                        拼接成一个字符串
+
+                        2.任何值和字符串做加法运算，都会先会转换成字符串，然后再和字符串进行拼接操作
+                          注意:我们可以利用这一个特点来将任意的数据转换成string，我们只需要任意数据
+                          类型+"" 就可以转换成String，这是一种隐式类型转换，这个游览器会自动完成，实际
+                          上它也是调用了String()函数
+
+                -
+                    可以对两个值进行减法运算
+                        注意：除了加法的字符串和数字相加时候会把数字转换成字符串，其他运算中都会把字符串转换
+                        成number  result=100-"ee"也是一样可以理解为 number（ee）强制转换结果字符串是NaN
+                        任何和NaN运算都是NaN
+
+                * 
+                    可以对两个值进行乘法运算
+                /
+                    可以对两个值进行除法运算
+                %
+                    可以对两个值进行取余运算
+
+        */
+
+        var a=123;
+        var result=typeof a;
+
+        result=a+1;
+
+        result=true+null
+        result=true+NaN
+        result="你好"+"谢谢"
+        result=NaN+null
+        result=1+"你好"
+
+        result=100-"ee"
+        console.log(result);
+        /*  
+            任何值做 - * /运算时候都会自动转换成Number
+                    我们可以利用这个特点做隐式类型转换
+                    可以通过一个值-0 *1 /1来将其转换成Number
+                    原来和Number（）函数一样
+        
+        */
+        var d="123";
+         d=d-0;
+         var ce="1"+"1"
+         console.log(ce);
+         
+         console.log(d);
+         console.log(typeof d);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+          function Person(name,age){
+            this.name=name;
+            this.age=age;
+          }
+
+          Person.prototype.toString=function(){
+                return "姓名是:"+this.name+"，年龄是:"+this.age
+          }
+
+          var per=new Person("红孩儿",8);
+          var per2=new Person("猪八戒",14);
+          var per3=new Person("孙悟空",18);
+          var per4=new Person("白龙马",38);
+          var per5=new Person("唐政",28);
+
+          var arr=[per,per2,per3,per4,per5];
+        //   console.log(arr);
+
+          /* 创建一个函数，可以将arr中满18岁的person提取出来
+            然后封装到一个新的数组中并返回     
+          */
+
+          function ti(arr){
+              var arrs=[];
+              for (var i = 0; i < arr.length; i++) {
+                    if(arr[i].age>=18){ 
+                        arrs.push(arr[i]);
+                    }
+                      
+              }
+              return arrs;
+          }
+
+        var test=ti(arr);
+        console.log(test);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

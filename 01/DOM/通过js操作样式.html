@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: sandybrown;
+        }
+    </style>
+    <script>
+
+            window.onload=function(){
+                /* 
+                    通过js修改css样式
+                        语法：元素.style.样式名=样式值
+                    注意：
+                        如果样式名有带有 - 号的那么在js修改样式时候样式名
+                        都是驼峰命名规则的background-color变成backgroundColor
+
+                    通过style属性设置的样式都是内联样式来的
+                        内联样式优先级高，修改后悔立即显示
+                        
+                    但是如果样式中有！important，则此时还是important高
+                    通过style属性设置和读取的都是内联样式    
+                */
+                var btn=document.getElementById('btn');
+                var box=document.getElementById('box');
+                btn.onclick=function(){
+                    box.style.width="300px"
+                    // 读取方式
+                    console.log(box.style.width);
+                }
+            }
+
+
+    </script>
+</head>
+<body>
+    <button id="btn">改变</button>
+    <div id="box">
+
+    </div>
+    
+</body>
+</html>

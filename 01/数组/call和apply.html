@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+            /* 
+                call和apply();
+                    -这两个方法都是函数对象的方法，需要通过函数对象来调用
+                    -当对函数调用call()和apply()都会调用函数执行
+                    -在调用call()和apply可以将一个对象指定第一个参数
+                        此时这个对象将会称为函数执行时的this
+                    -call()方法可以将实参在对象之后依次传递   
+                    -apply()方法需要将实参封装到一个数组中统一传递
+
+                    它们之间第一个值是隐含的,就上面提到的传递时我们可以指定想要对象，后面值就是方法参数
+
+                    -this 总结
+                        1.以函数形式调用时候。this是window；
+                        2.以方法的形式调用时候。this是调用方法的对象
+                        3.已构造函数形式调用时候，this是新创建的对象
+                        4.使用call和apply调用时候。this是我们指定的对象
+
+            */
+            function  AA(a,b){
+                console.log(this);
+                console.log(a,b);
+            }
+            var obj={
+                name:"小明",
+                say:function(){
+                    console.log(this.name);
+                }
+            }
+           AA.call(obj,2,3)
+          /*  AA.apply(obj) */
+            AA.apply(obj,[2,3])
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

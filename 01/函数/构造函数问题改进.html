@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       /* 构造函数问题改进 
+          缺陷问题：每次创建对象时候相对的构造函数中的方法也会创建一个
+          我们没必要每个对象都创建一个方法。我们可以抽取出来共享一个方法,避免浪费资源
+          
+       */
+        function Person(name,age){
+           this.name=name;
+           this.age=age; 
+           this.say=fun;         
+        }
+         
+        //但是相对还有问题就是，可能会出现在开发时候其他人命名重复造成覆盖问题。
+        //可以考虑原型问题处理
+          var fun= function(){
+                console.log(this.name);            
+            }
+
+      
+        var per=new Person("韩红",12);
+        var per2=new Person("韩红2",12);//new创建了一个对象，对象时object类型
+        per.say();
+        
+        
+
+       
+       /* instanceof 用来判断是否是同一种类型 */
+        console.log(per instanceof Object);
+        console.log(per instanceof Person);
+        
+
+      
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

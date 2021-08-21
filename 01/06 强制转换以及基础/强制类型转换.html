@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            将其他的数据类型转换为String类型
+                方法一：
+                    -调用tostring（）方法
+                     注意 null和undefined是没有tostring方法的，调用了会报错
+                方法二：
+                    -调用string()函数，并将被转换的数据作为参数传递给函数              
+                    -使用string()函数做强制类型转换时，
+                        对于null和undefined，就不会调用tostring()的方法
+                        对于number和boolean，就会调用tostring()方法
+                            它会将null直接转换成“null”
+                            它会将undefined直接转换成“undefined”
+        */
+       var a=123;
+        //方法一
+       var b=a.toString();  
+         //方法二
+       a=a.toString();
+       console.log(typeof a);
+       console.log(a);
+
+        // 调用函数，把变量当成参数传递给到string函数进行转换
+        var c=222
+        c=String(c);
+        console.log(c);
+        console.log(typeof c);
+
+        var nulls=null.toString();
+      
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

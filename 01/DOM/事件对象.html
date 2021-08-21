@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            border: 1px solid black;
+            width: 300px;
+            height: 100px;
+        }
+
+        #box2{
+            border: 1px solid black;
+            margin-top: 20px;
+            width: 300px;
+            height: 20px;
+        }
+    </style>
+
+    <script>
+        window.onload=function(){
+            var box=document.getElementById("box")
+            var box2=document.getElementById("box2")
+           
+            /* 
+                clientX 获取鼠标指针的水平坐标
+                clientY 获取鼠标指针的垂直坐标
+
+                event 事件对象
+                -当事件的响应函数被触发时，游览器每次都会将一个事件对象作为实参传递进响应函数
+                    在事件对象（event）中封装了当前事件相关的一切信息，比如鼠标的坐标 键盘的位置 鼠标滚动等
+                    事件对象个人理解是事件的触发属性都封装到一个对象中
+
+                 在IE8中是将事件对象作为window对象的属性保存的
+                    所以如果想要在ie8中响应不报错就在前面添加window.event
+            */
+            box.onmousemove=function(event){
+
+                //解决兼容性问题
+                event=event|| window.event;
+                var x=event.clientX
+                var y=event.clientY
+                box2.innerHTML='x='+x+'y='+y+'';   
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+</body>
+</html>

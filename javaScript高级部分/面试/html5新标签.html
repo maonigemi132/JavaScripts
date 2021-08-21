@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            /* dateset方式获取自定义属性 */
+            var test=document.getElementById("test")
+            console.log(test.dataset);
+            console.log(test.dataset.user);
+        }
+        
+    </script>
+</head>
+<body>
+    <!-- 类似于select下拉菜单 只不过datalist这个新特性
+        需要通过input的list属性绑定datalist中的id
+    -->
+   <input list="lists">
+    <datalist id="lists">
+        <option value="11"></option>
+        <option value="11"></option>
+        <option value="11"></option>
+        <option value="11"></option>
+    </datalist>
+
+    <!-- 作为计算结果输出显示 -->
+   <form oninput="s.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="number" id="a" value="0">+
+        <input type="number" id="b" value="0">=
+    <output name="s" for="a b">0</output>
+   </form>
+
+   <!-- dateset -->
+   <div data-user="user1"  data-name="name1" id="test"></div>
+
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+
+            /* 
+      在document中有一个body属性，它保存的是body的引用
+  */
+            var bo = document.body
+            console.log(bo);
+            document.documentElement
+            // document.documentElement保存的是整个html根标签
+            var htmls = document.documentElement;
+            console.log(htmls);
+            // document.all页面中所有的元素 不过已经弃用了
+            var all = document.all
+            console.log(all.length);
+
+            var divs = document.getElementsByTagName("div")
+            console.log(divs.length);
+
+            /* 
+                document.querySelector 
+                -需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点的对象
+                -使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，难么它只会返回第一个
+            */
+                var qu=document.querySelector("div")
+                console.log(qu);
+            /* 
+                document.querySelectorAll,区别上它会把符合条件的元素都封装到一个数组当中返回
+                -即使返回的条件元素只有一个，它还是会返回数组
+            */
+                var qu=document.querySelectorAll("div");
+                console.log(qu);
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <div>ni</div>
+    </div>
+    <div>1</div>
+    <div>1</div>
+</body>
+
+</html>

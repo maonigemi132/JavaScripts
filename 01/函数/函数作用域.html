@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script>
+         /* 
+            函数作用域(局部作用域)
+                -调用函数时创建函数作用域，函数执行完毕以后幂函数作用域销毁
+                -每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的
+                -在函数作用域中可以访问到全局作用域的变量,在全局作用域中是无法访问到函数作用域的变量
+                -当在函数作用域操作一个变量时候，它会现在自身作用域中寻找，如果有就直接使用，
+                 没有的话就会去上一级作用域中寻找,知道找到全局作用域，
+                 如果全局作用域中依然没有找到，则会返回报错
+                -在函数中如果不想访问局部的作用域而是想要访问全局的，那么可以使用window对象 
+
+         */
+
+        var a=10
+        function fun(){
+            var b=5; 
+            var a=5         
+            function fun2(){
+                document.write(a)
+            }
+            fun2()
+        } 
+        fun();
+
+        /* 
+            在函数作用域也可以声明提前的特性
+            使用var关键字声明的变量，也会在函数中所有的代码执行之前被声明
+            函数声明也会在函数中所有的代码执行之前执行
+        */
+        function fun3(){
+            console.log(a);
+            var a=5;
+        }
+        fun3();
+
+
+        /* 
+            在函数中，不适用var声明的变量都会称为全局变量
+            没有使用var关键字，则会设置为全局变量相当于window.变量,
+            如果函数作用域没有调用的那么会出现undefined
+            定义了形参就相当于在函数作用域中声明的了变量
+        */
+        var c=33;      
+        function fun4(){
+            console.log(c);
+            d=6;
+        }
+        fun4();
+        console.log(d);
+        
+        function fun5(e){
+            //整个形参其实也相当于在里面声明了var e；
+            console.log(e);
+        }
+        fun5()
+
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

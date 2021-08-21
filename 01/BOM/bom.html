@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            Chrome的userAgent
+            Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+            
+        */
+        console.log(navigator.userAgent);
+        var ua=navigator.userAgent;
+        if(/chrome/i.test(ua)){
+            alert("是谷歌来的")
+        }else if(/msie/i.test(ua)){
+            alert("ie来的")
+        }
+
+      /* 
+        通过UserAgent不能判断，还可以通过一些游览器中特有的对象。来判断游览器信息
+        比如ActiveXObject ie11下返回都是true 但是11是fales 所以还是的考虑其他方式
+        可以通过之前在object学到的 in运算去查看对象中是否含有该属性
+      */
+        console.log("ActiveXObject" in window)
+       
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

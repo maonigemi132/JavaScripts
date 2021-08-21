@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        原型链图解
+            访问一个对象的属性时候
+            先会在自身属性中查找，找到返回
+            没有找到找到，再沿着__proto__这条链向上查找，找到返回
+            如果最终还是没有找到，返回undefined
+        别名：隐式原型链
+            原型链本质上其实就是沿着隐式原型查找的。不看显示原型
+             原型链主要作用其实最终就是要查找对象属性（方法）。
+             查找过程其实就是通过隐式原型去层层查找。
+
+     -->
+
+     <script>
+         //其实不就相当于 var Fn=new Function(); 所以才说也是一个实例对象
+         function Fn(){}
+        // 所有函数都是Function的实例（包含Function）
+         console.log(Fn.__proto__===Function.prototype);//隐式指向Function.prototyp
+         /* Function.prototype地址怎么来的 */
+        // function Function(){} var Function=new Function(); Function函数对象也是实例对象
+         console.log(Function.__proto__===Function.prototype);
+
+        
+         console.log(Function.prototype===Object.__proto__);
+         console.log(typeof Object.__proto__);
+         console.log(Object.prototype instanceof Object);
+        
+         /* 
+            1.函数的显示原型指向的对象：默认是空Object实例对象
+         */
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

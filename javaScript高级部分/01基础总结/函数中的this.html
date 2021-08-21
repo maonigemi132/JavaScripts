@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        this是什么?
+            任何函数本质上都是通过某个对象来调用，如果没有直接指定那么就是window
+            所有函数内部都有一个变量this
+            它的值是调用函数的当前对象
+
+        如何确定this的值?
+            test（） window
+            p.test() p
+            new test(); 新创建的对象
+            p.call(obj) obj
+            
+     -->
+     <script>
+         function person(){
+            console.log(this);  
+            this.setColor=function(){
+                console.log(this);       
+            }       
+         }
+         person();//window
+         var p=new person();//this 是p
+         var test=p.setColor; //this 是window p.setColor返回是函数对象
+         var obj={}
+         p.setColor.call(obj)  //this 是obj
+         test();
+         
+         
+          
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

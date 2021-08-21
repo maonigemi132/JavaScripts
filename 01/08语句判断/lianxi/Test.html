@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* prompt()函数可以弹出一个提示框 */
+      
+     
+        while(true){
+            var a=prompt("请输入小明的分数")
+            if(a<=100&&a>0){
+                if(a==100){
+                    alert("奖励一辆BMW")
+                }else if(a>=80){
+                    alert("奖励一台iphone15s")
+                }else if(a>=60){
+                    alert("奖励一本参考书")
+                }else{
+                    alert("继续努力")
+                }
+                    break;    
+            }else if(isNaN(a)){
+                    alert("输入范围错误");
+            }
+               
+        }
+     
+        
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

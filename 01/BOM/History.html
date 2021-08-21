@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn")
+            btn.onclick=function(){
+                /* 
+                    back()返回上一页面，作用和游览器回退按钮一样
+                */
+                history.back();
+                /* 
+                    forward可以跳转到下一个页面
+                */
+                history.forward();
+                /* 
+                    go()
+                    可以用拉我跳转指定的页面
+                    它需要一个整数作为参数
+                        1：表示向前跳转一个页面相当于forward（）
+                        2：表示向前跳两个页面
+                        -1：表示向后跳转一个页面
+                        -2：表示向后跳转两个页面
+
+                */
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <button id="btn" >后退</button>
+    <a href="div居中方式.html">history</a>
+</body>
+</html>

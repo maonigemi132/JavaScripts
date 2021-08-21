@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1() {
+            var a = 2
+            function fn2() { //执行函数定义就会产生闭包（不用调用函数）
+                a++
+                console.log(a);
+            }
+            return fn2
+        }
+        
+        var f=fun1();
+        console.log(f);
+        f();
+        f();
+       
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

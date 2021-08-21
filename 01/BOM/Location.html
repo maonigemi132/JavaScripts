@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var btn=document.getElementById("btn")
+            /* 
+                直接打印location可以输出地址栏信息
+                如果直接将location属性修改为一个完整的路径，或相对路径则我们页面会自动跳转到
+                该路径吗，并且会生成相应的历史记录
+            */
+            btn.onclick=function(){
+             location="http://baidu.com"
+             /* 
+                用来跳转到其他页面，作用和直接修改location一样
+             */
+            //  location.assign("http://baidu.com")
+
+            /* 
+                重新加载当前页面reload 和刷新按钮一样
+                location.reload(); 
+                如果方法中传递一个true，作为参数，则会强制清空缓存刷新页面
+            */
+           
+            /* 
+                location.replace("http://baidu.com") 
+                方法不会在 History 对象中生成一个新的记录。当使用该方法时，新的URL将覆盖 History 对象中的当前记录
+            */
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <button id="btn" >点击获取地址</button>
+    <a href="div居中方式.html">history</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            自定义构造函数模式
+            套路：自定义构造函数，通过new方式创建对象
+            适用场景：需要创建多个类型确定的对象
+            问题：每个对象都有相同的数据，浪费内存
+        */
+         function Person(name,age){
+             this.name=name
+             this.age=age
+             this.setfun=function(){
+                 console.log(":1111");
+             }
+         }
+
+         var p=new Person("11",12);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

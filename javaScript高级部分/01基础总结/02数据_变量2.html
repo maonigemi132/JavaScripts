@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+           关于引用变量赋值的问题
+            n个引用对象指向同一个对象，通过这个对象变量修改对象内部的属性值,另一个变量看到的是修改后的数据
+            2个引用对象指向同一个对象,让其中一个引用变量指向另一个对象，另一个引用变量依然指向前一个对象
+        */
+
+        var a = { age: 12 };   //把a的内容赋值给到b 这个内容只是说是地址值
+        console.log(a.age);
+        var b = a;
+        console.log("b输出" + b.age);
+        b.age = 14;
+        console.log("b修改输出" + b.age);
+        console.log("a输出" + a.age);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

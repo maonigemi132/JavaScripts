@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+            缺点
+                函数执行完之后，函数内的局部变量没有释放，占用内存事件会变长
+                容易造成内存泄露(就是占用着，但是不去使用就是泄露)
+             2解决
+                能不用闭包就不用
+                及时释放   
+     -->
+     <script>
+         function fun1(){
+             var a=1;
+             function fun2(){
+                 console.log(a);
+             }
+         }
+         var fun=fun1
+         fun=null //让内部函数成为垃圾对象。 --回收闭包
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

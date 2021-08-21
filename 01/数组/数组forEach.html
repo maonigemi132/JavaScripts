@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            forEach()方法需要一个函数作为参数
+                -像这种函数，由我们创建但是不由我们调用的，我们称为回调函数
+                -数组中有几个元素函数就会指定几次，每次执行时候，游览器会将变量到的元素
+                    以实参的形式传递进来，我们可以来定义形参，来读取这些内容
+               -游览器会在回调函数中传递三个参数;
+                   第一个参数，就是当前正在遍历的元素
+                   第二个参数，就是当前正在变量的元素的索引（下标）
+                   第三个参数，就是正在遍历的数组      
+
+        */
+        var arr=["熏悟空","猪八戒","红孩儿"];
+
+        arr.forEach(function(value,index,){  
+            console.log(value[index]);
+        })
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

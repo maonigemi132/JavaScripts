@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主要处理ie拖拽问题</title>
+    <!-- 
+        问题ie当按alt+a时候进行拖拽元素时候会拖拽文字
+     -->
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+    </style>
+
+
+    <script>
+
+        window.onload = function () {
+            var box = document.getElementById("box")
+
+            box.onmousedown = function (event) {
+                /* 
+                    主要用于ie，当用一个元素的setCapture方法以后，
+                    这个元素将会把下一次所有鼠标按下相关事件捕获到自身上.
+                */
+                box.setCapture();
+   
+                var xl = event.clientX - box.offsetLeft;
+                var yl = event.clientY - box.offsetTop;
+                
+               
+
+
+                document.onmousemove = function (event) {
+                    var x = event.clientX - xl;
+                    var y = event.clientY - yl;
+                    box.style.left = x + "px";
+                    box.style.top = y + "px";
+
+                    document.onmouseup = function () {
+                        //取消移动事件
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                        /* 
+                            释放捕获
+                        */
+                        box.releaseCapture()
+                    };
+                    return false
+                };
+
+            };
+        }
+
+    </script>
+</head>
+
+<body>
+    <p>222</p>
+    <div id="box"></div>
+
+    <div id="box2"></div>
+</body>
+
+</html>

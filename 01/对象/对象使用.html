@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            创建对象
+            使用new关键字调用的函数，是构造函数constructor
+            构造函数是专门用来创建对象的函数
+            使用typeof检查时候可以看到是一个object类型
+
+            在对象中保存的值称为属性
+            向对象添加属性
+            语法：对象.属性名=属性值；
+            如果读取对象中没有属性，不会报错但是会返回undefined
+
+            修改：
+                 对象.属性名=新值
+            删：
+                delect    对象.属性名  
+        */
+
+        var obj=new Object();
+         obj.name="小明";
+         obj.age=12;
+
+         obj.name="111"
+         delete obj.name
+         console.log(obj);
+
+         /* 
+            对象的属性名不强制要求遵守标识符的规范
+            属性值也一样可以是任意属性类型
+                什么乱七八糟名字都可以
+                但是如果使用特殊的属性名需要另外一种方式：
+                语法：对象["属性名"]=属性值
+            读取时也需要采用这种方式
+            当然[]这种形式去操作，相对于 obj.name这种形式更灵活
+            对象["属性名"]这种方式相对以后放一个变量里面也就对比上面更灵活
+            对象里面还可以包含对象
+         */
+        obj["11111222"]=222; 
+               
+        console.log(obj["11111222"]);
+
+         /* 
+            
+            in运算符
+            -通过该运算符可以检查一个对象中是否有含指定的属性
+                如果有则返回true，否则返回false
+            -语法 "属性名" in 对象
+
+         */
+        var obj2=new Object();
+        obj2.sex="男";
+        obj.test=obj2
+        console.log(obj.test.sex);
+        console.log("test" in obj);
+        
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

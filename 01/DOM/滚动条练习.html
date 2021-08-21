@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gun{
+            height: 300px;
+            width: 200px;
+            background-color: #bfc;
+            overflow:auto;
+        }
+    </style>
+
+    <script>
+        window.onload=function(){
+            var gun=document.getElementById("gun");
+            var inputs=document.getElementsByTagName("input")
+            gun.onscroll=function(){
+                console.log(gun.clientHeight)
+                if(gun.scrollHeight-gun.scrollTop==gun.clientHeight){
+                    for (var i = 0; i < inputs.length; i++) {
+                            inputs[i].disabled=false               
+                    }
+                }
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+        <p id="gun">
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+            我已仔细阅读，并同意该条款
+        </p>
+    
+        <input type="checkbox" disabled='disabled'>已阅读
+        <input type="submit" disabled='disabled'>
+</body>
+</html>

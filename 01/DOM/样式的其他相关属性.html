@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 210px;
+            background-color: sandybrown;
+            border: 20px solid;
+            padding: 20px;
+            margin-left: 20px;
+        }
+
+
+        #box2{
+            padding: 100px;
+            background-color: rgb(170, 255, 213);
+        }
+        
+        #box3{
+           width: 400px;
+           height: 600px;
+            background-color: #bfa;
+
+        }
+        #box4{
+           width: 300px;
+           height: 400px;
+            background-color: royalblue;
+            overflow:auto;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            var box = document.getElementById('box');
+            var box4 = document.getElementById('box4');
+            btn.onclick = function () {
+                /* 
+                    clientHeight 
+                    clientWidth
+                        -这两个属性可以获取可见宽度和高度
+                        -这些属性是不带px的，返回的都是一个数字，可以直接运算
+                        -会获取元素的宽度和高度，包括内容区和内边距
+                        -这些属性都是只读的，不能修改
+
+                     offsetHeight   
+                     clientWidth
+                        -这两个属性可以获取可见宽度和高度
+                        -会获取元素的高度和高度，包括内容区和内边距和边框
+
+                     offsetParent
+                        -可以用来获取当前元素的定位父元素
+                        -会获取离当前元素最近的开启了定位的祖先元素
+                            如果所有元素都没有开启定位，则返回body   
+                     
+                    offsetLeft
+                        -可以用来获取当前元素的水平偏移量
+                        -如果当父元素开启定位了之后，子元素
+                    offsetTop
+                        -可以用来获取当前元素的垂直偏移量
+
+                    scrollHeight
+                    scrollWidth
+                        -可以获取元素整个滚动区的宽度和高度    
+
+                    scrollLeft  
+                        -可以获取水平滚动条的距离
+                    scrollTop
+                        -可以获取垂直滚动条的距离 
+
+                */
+                alert(box4.scrollTop)
+                alert(box4.scrollHeight-box4.scrollTop)
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <button id="btn" >改变</button>
+    <div id="box4">
+        <div id="box3" ></div>
+    </div>
+        <div id="box2" style="position: relative;">
+            <div id="box" ></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

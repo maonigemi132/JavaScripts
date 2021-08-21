@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            > 大于号
+                成立返回true 否则false
+             
+            >= 大于等于
+             -判断左侧符号的值是否大于或等于右侧的值   
+             
+            <= 小于等于
+
+            非数值的情况
+                -对于非数值进行比较时候，会将其转换为数字，然后在比较
+                任何的值和NaN进行比较的时候都是false
+                -如果符号两侧的值都是字符串，它不会将其转换为数字进行比较的
+                    而会分别比较字符串中字符的Unicode编码
+                -比较的字符编码时会一位一位进行比较的，如果两位一样则比较下一位,所以也可以用
+                    它来进行英文排序.
+                     console.log("bbc">"bcc")
+                -如果比较的两个字符串的类型的数字，可能会得到不可预期的结果
+                    注意:在比较两个字符串型的数字时，一定要转型,可以通过添加+实现转型，或者有一端是数字类型
+                    就不会出现这种问题。
+                      console.log("11111"<+"5")
+
+        */
+       var result=5;
+       result=5>=5
+       result=5 >= "1";
+       result="1" >= "5"
+       result=1 >NaN
+       console.log(result);
+       console.log("bbc">"bcc");
+        console.log("11111"<+"5");
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

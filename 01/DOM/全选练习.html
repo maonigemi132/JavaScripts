@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var ch = document.getElementById("checkedAllBtn");
+            var its = document.getElementsByName("items");
+            console.log(its);
+
+
+            /* 全选 */
+            ch.onclick = function () {
+                for (var i = 0; i < its.length; i++) {
+                    its[i].checked = true;
+                    nob.checked = true;
+                }
+            }
+            /* 全不选 */
+            var nob = document.getElementById("checkedNoBtn");
+            nob.onclick = function () {
+                for (var i = 0; i < its.length; i++) {
+                    its[i].checked = false;
+                    nob.checked = false;
+                }
+            }
+
+
+
+            /* 反选 */
+            var rev = document.getElementById("checkedRevBth");
+            rev.onclick = function () {
+                nob.checked = true;
+                for (var i = 0; i < its.length; i++) {
+                    its[i].checked = !its[i].checked;
+                    if (!its[i].checked) {
+                        nob.checked = false;
+                    }
+                }
+
+            }
+
+            /* 提交 */
+            var sendBtn = document.getElementById("sendBtn");
+            sendBtn.onclick = function () {
+                for (var i = 0; i < its.length; i++) {
+                    if (its[i].checked) {
+                        alert(its[i].value)
+                    }
+                }
+            }
+
+
+            /* 全选全不选 
+            在事件的响应函数中,响应行数是谁绑定的this就是谁
+            
+            */
+            var nob = document.getElementById("checkedAllBox");
+            nob.onclick = function () {
+                for (var i = 0; i < its.length; i++) {
+                    its[i].checked = this.checked;
+                }
+            }
+
+
+            /* 都勾选后全选才能勾选，其中一个不勾选全选都要取消 */
+              for (var i = 0; i < its.length; i++) {
+                  its[i].onclick = function () {
+                     /*  var flag=true */  //质数方式判断记录也可以
+                      nob.checked = true;
+                      for (var j = 0; j < its.length; j++) {
+                          if (!its[j].checked) {
+                              nob.checked = false;
+                              break
+                          }
+                      }
+                  };      
+                       
+              };
+
+             
+
+
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <form method="post">
+        你的爱好是运动吗?<input type="checkbox" id="checkedAllBox">全选/全不选、
+        <br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+        <br>
+        <input type="button" id="checkedAllBtn" value="全选">
+        <input type="button" id="checkedNoBtn" value="全不选">
+        <input type="button" id="checkedRevBth" value="反选">
+        <input type="button" id="sendBtn" value="提交">
+    </form>
+
+</body>
+
+</html>

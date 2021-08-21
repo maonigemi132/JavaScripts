@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            使用Number()函数来转换成number类型
+                -如果转换过程中变量含有字母，那么结果a会变成NaN值
+                -如果纯数字的字符串，那么转换就是数字
+                -如果字符串中有一个空串，或者全是空格那么就是0
+
+                布尔-->s数字
+                    true 1  false 0
+                Null--> 数字0
+                undefined --> NaN
+                       
+        */
+        var a="123ss";
+        a=Number(a);
+        // boolean类型转换成number类型
+        a=true;
+        a=Number(a);
+        // null
+        a=null
+        a=Number(a);
+
+        // undefined
+        a=undefined
+        a=Number(a);
+
+        a=Object
+        a=Number(a);
+
+        a=""
+        a=Number(a);
+
+        console.log(a);
+        console.log(typeof a)
+
+        /* 
+            当我们在一个变量中只想保留其数值时候我们可以使用parseFloar或者parseInt（）
+            parseInt可以将一个字符串中的有效整数内容取出来，然后转换成Number
+            parseFloat作用和parseInt类似，不同的是它可以获取有效小数
+
+            注意：如果对非String使用parseInt()或parseFloat
+                它会先将其转换成String，然后在操作
+        */
+        
+        a="123sd"
+        a=parseInt(a);
+
+        a="123.44.4sd"
+        a=parseFloat(a);
+
+        a=undefined
+        a=parseFloat(a);
+
+        console.log(a);
+        console.log(typeof a)
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

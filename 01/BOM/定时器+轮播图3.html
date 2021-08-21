@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./js/tools.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 520px;
+            height: 333px;
+            background-color: aqua;
+            margin: 100px auto;
+            padding: 10px 0px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgList {
+            list-style: none;
+            position: absolute;
+            display: flex;
+        }
+
+        #imgList li {
+            margin: 0 10px;
+        }
+
+        /* 点点 */
+
+        #navDiv {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #navDiv a {
+            width: 14px;
+            height: 14px;
+            background-color: rgba(211, 30, 30, 0.5);
+            display: inline-block;
+            margin: 0 8px;
+        }
+
+        #navDiv a:hover {
+            background-color: black;
+        }
+    </style>
+
+    <!--引用工具-->
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 520 * imgArr.length + "px";
+
+            var arrLi = document.getElementsByTagName("a");
+            var index = 0;
+            arrLi[index].style.backgroundColor = "black";
+
+           
+            //绑定图片
+            for (var i = 0; i < arrLi.length; i++) {
+
+                //为每一个超链接都添加一个num属性
+                arrLi[i].num = i;
+
+                //为超链接绑定单击响应函数
+                arrLi[i].onclick = function () {
+                    clearInterval(time);
+                    //获取点击超链接的索引,并将其设置为index
+                    index = this.num;
+                    console.log(index);
+
+
+                    setA();
+
+                    move(imgList, "left", -520 * index, 20, function () {
+                       autoPlay();
+                    });
+                };
+            }
+
+
+            /*处理点击后背景颜色问题*/
+            function setA() {
+                if (index >= imgArr.length - 1) {
+                    index = 0;
+                    imgList.style.left = 0;
+                }
+                for (var i = 0; i < arrLi.length; i++) {
+                    arrLi[i].style.background = "";
+                }
+                arrLi[index].style.background = "black"
+            }
+
+
+
+            var time;
+            function autoPlay() {
+                time = setInterval(function () {
+                    index++;
+                    index %= imgArr.length;
+                    move(imgList, "left", -520 * index, 20, function () {
+                        setA();
+                    })
+                }, 3000)
+            }
+            autoPlay();
+
+
+        };
+
+    </script>
+</head>
+
+<body>
+    <!-- 创建一个外部的div，来作为大的容器 -->
+    <div id="outer">
+        <!-- 创建一个ul，用于放置图片 -->
+        <ul id="imgList">
+            <li><img src="img/1.jpg" /></li>
+            <li><img src="img/2.jpg" /></li>
+            <li><img src="img/3.jpg" /></li>
+            <li><img src="img/4.jpg" /></li>
+            <li><img src="img/5.jpg" /></li>
+            <li><img src="img/1.jpg" /></li>
+        </ul>
+        <!--创建导航按钮-->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>

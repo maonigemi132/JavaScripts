@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            数组方法
+            push()
+            该方法在数组末尾添加或者多个元素，并返回数组的新长度
+            -可以将要添加的元素作为方法参数传递，
+                这样这些元素将会自动添加到数组的末尾
+            -该方法会将数组新的长度作为返回值返回    
+         */
+        var arr=["小明","小白"]
+        var result=arr.push("小红","小黑");
+        console.log(result);
+
+        /* 
+            pop()
+                -该方法可以删除数组最后一个元素，并且被删除的元素会作为返回值返回
+        */
+       result=arr.pop();
+       console.log(result);
+       console.log(arr);
+
+       /* 
+        unshift()
+            -向数组开头添加一个或者多个元素，并且返回新的数组长度
+            -向前边插入元素以后，其他的而元素索引会依次调整
+       */
+       result=arr.unshift("小黄","小吕");
+       console.log(result);
+       console.log(arr);
+
+       /* 
+        shift()
+            -可以删除数组的第一个元素，被删除的元素会作为返回值返回
+       */
+       result=arr.shift();
+       console.log(result);
+       console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

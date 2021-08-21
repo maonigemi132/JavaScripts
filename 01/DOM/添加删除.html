@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/addDelete.css">
+    <script>
+
+        function deletes(){
+            var tr = this.parentNode.parentNode;
+                    // var name=tr.children[0].innerHTML;
+                    var name = tr.getElementsByTagName("td")[0].innerHTML;
+                    console.log(name)
+                    /*
+                    * 删除之前弹出一段提示框
+                    * confirm()用与弹出一段带有确定和取消的提示框
+                    * 需要一个字符串作为参数,该字符串会作为提示显示出来
+                    * 通过操作会返回一个boolean结果
+                    * */
+                    var que = confirm("真的要" + name + "删除吗")
+                    if (que) {
+                        //this 值的是当前对象，当前点击对象时谁的this就是谁
+
+                        tr.parentNode.removeChild(tr);
+                    } else {
+
+                    }
+
+
+                    return false;
+
+        }
+        console.log(deletes);
+
+
+        window.onload = function () {
+            var allA = document.getElementsByTagName("a");
+
+            /* 
+                为每个超链接都绑定一个单击响应函数
+            */
+
+
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].onclick = deletes;
+
+            }
+
+            /* 添加 */
+            function add() {
+                var sub = document.getElementById("btn");
+
+
+                sub.onclick = function () {
+                    // 获取员工信息
+                    var salary = document.getElementById("salary").value;
+                    var email = document.getElementById("email").value;
+                    var empname = document.getElementById("empName").value;
+                    var emp = document.getElementById("employeeTable");
+                    /* 
+                         把tr放到tbody中，这个是游览器自动添加，主要是添加过程中如果不添加到这里面,在
+                         父元素employeeTable中直接添加会导致添加结果在tbody外面的，也导致
+                         这部分添加的代码可能会导致样式问题丢失
+                    */
+                    var tbod = document.getElementsByTagName("tbody");
+                    console.log(tbod);
+
+                    var tr=document.createElement("tr");
+                    var td=document.createElement("td");
+                    var td2=document.createElement("td");
+                    var td3=document.createElement("td");
+                    var td4=document.createElement("td");
+                    
+                    // a元素
+                    var a=document.createElement("a");
+                    
+
+                    // 把td都放进tr里面
+                    tr.appendChild(td);
+                    tr.appendChild(td2)
+                    tr.appendChild(td3)
+                    tr.appendChild(td4)
+
+                    //创建文本节点
+                    var empnames=document.createTextNode(empname);
+                    var emails=document.createTextNode(email);
+                    var sa=document.createTextNode(salary);
+                    var de=document.createTextNode("Delete");
+
+                    /* 把文本节点添加到td里面 */
+                    td.appendChild(empnames)
+                    td2.appendChild(emails)
+                    td3.appendChild(sa)
+                    // 把a添加到td中
+                    td4.appendChild(a)  
+                    // 把delete文本添加到a标签中  
+                    a.appendChild(de)  
+                    a.href="#"   
+
+                    console.log(tr);
+                    // 把tr放到tbody中
+                    tbod[0].appendChild(tr)
+
+                    //删除循环无法删除问题是因为，一开始循环结果已结束，后添加删除没有循环，所以再调用一遍删除函数对象就行
+                   a.onclick = deletes;
+
+                }
+            }
+
+            add();
+
+        };
+
+
+    </script>
+</head>
+
+<body>
+
+
+    <table id="employeeTable">
+        <tr>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Salary</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>111@qq.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=001">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>Jerry@Jerry.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>Bob@qq.com</td>
+            <td>6000</td>
+            <td><a href="deleteEmp?id=003">Delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="word">name:</td>
+                <td class="inp">
+                    <input type="text" name="empname" id="empName">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp">
+                    <input type="text" name="email" id="email">
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="btn">
+                        Submit
+                    </button>
+                </td>
+
+            </tr>
+        </table>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
